@@ -1,0 +1,9 @@
+access editor dashboard:
+  title: 'Access editor dashboard'
+  description: 'Allows access to the editor dashboard'
+  restrict access: TRUE
+
+access admin dashboard:
+  title: 'Access admin dashboard'
+  description: 'Allows access to the admin dashboard'
+  restrict access: TRUE

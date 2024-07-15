@@ -1,0 +1,9 @@
+name: 'Blog Module'
+type: module
+description: 'A simple CRUD blog application.'
+package: Custom
+core_version_requirement: ^10
+dependencies:
+  - drupal:node
+  - drupal:user
+  - drupal:text

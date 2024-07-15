@@ -1,0 +1,56 @@
+id: blog_module_workflow
+label: 'Blog Post Workflow'
+type: content_moderation
+states:
+  draft:
+    label: 'Draft'
+    published: false
+  ready_to_publish:
+    label: 'Ready to Publish'
+    published: false
+  published:
+    label: 'Published'
+    published: true
+  rejected:
+    label: 'Rejected'
+    published: false
+  archived:
+    label: 'Archived'
+    published: false
+transitions:
+  create_new_draft:
+    label: 'Create New Draft'
+    from: ['draft', 'ready_to_publish', 'published', 'rejected', 'archived']
+    to: 'draft'
+  move_to_ready:
+    label: 'Move to Ready to Publish'
+    from: ['draft']
+    to: 'ready_to_publish'
+  publish:
+    label: 'Publish'
+    from: ['ready_to_publish']
+    to: 'published'
+  reject:
+    label: 'Reject'
+    from: ['draft', 'ready_to_publish']
+    to: 'rejected'
+  archive:
+    label: 'Archive'
+    from: ['published']
+    to: 'archived'
+roles:
+  editor:
+    label: 'Editor'
+    permissions:
+      - 'use draft transition blog_module_workflow'
+      - 'use move_to_ready transition blog_module_workflow'
+      - 'use create_new_draft transition blog_module_workflow'
+  admin:
+    label: 'Admin'
+    permissions:
+      - 'use publish transition blog_module_workflow'
+      - 'use reject transition blog_module_workflow'
+      - 'use archive transition blog_module_workflow'
+      - 'use draft transition blog_module_workflow'
+      - 'use move_to_ready transition blog_module_workflow'
+      - 'use create_new_draft transition blog_module_workflow'

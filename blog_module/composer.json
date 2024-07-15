@@ -1,0 +1,9 @@
+{
+    "name": "drupal/blog_module",
+    "type": "drupal-module",
+    "description": "A simple CRUD blog application",
+    "require": {
+      "drupal/core": "^10.3"
+    }
+  }
+  

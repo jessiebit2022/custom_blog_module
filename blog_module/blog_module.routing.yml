@@ -1,0 +1,15 @@
+blog_module.editor_dashboard:
+  path: '/editor-dashboard'
+  defaults:
+    _controller: '\Drupal\blog_module\Controller\EditorDashboardController::content'
+    _title: 'Editor Dashboard'
+  requirements:
+    _permission: 'access content'
+
+blog_module.admin_dashboard:
+  path: '/admin-dashboard'
+  defaults:
+    _controller: '\Drupal\blog_module\Controller\AdminDashboardController::content'
+    _title: 'Admin Dashboard'
+  requirements:
+    _permission: 'administer nodes'
